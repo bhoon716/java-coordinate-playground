@@ -31,9 +31,9 @@ class CarTest {
         double tripDistance2 = car2.getTripDistance();
         double tripDistance3 = car3.getTripDistance();
 
-        assertThat(tripDistance1).isEqualTo(10.0);
-        assertThat(tripDistance2).isEqualTo(13.0);
-        assertThat(tripDistance3).isEqualTo(15.0);
+        assertThat(tripDistance1).isEqualTo(100.0);
+        assertThat(tripDistance2).isEqualTo(200.0);
+        assertThat(tripDistance3).isEqualTo(300.0);
     }
 
     @Test
