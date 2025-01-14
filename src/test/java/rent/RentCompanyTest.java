@@ -1,5 +1,6 @@
 package rent;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import rent.domain.*;
 
@@ -9,10 +10,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class RentCompanyTest {
     private static final String NEWLINE = System.getProperty("line.separator");
 
+    RentCompany company;
+
+    @BeforeEach
+    void setUp() {
+        company = RentCompany.create();
+    }
 
     @Test
     void createTest() {
-        RentCompany company = RentCompany.create();
 
         assertThat(company).isNotNull();
         assertThat(company).isInstanceOf(RentCompany.class);
@@ -20,7 +26,6 @@ public class RentCompanyTest {
 
     @Test
     void addCarTest() {
-        RentCompany company = RentCompany.create();
 
         boolean result = company.addCar(new Sonata(200));
 
@@ -29,7 +34,6 @@ public class RentCompanyTest {
 
     @Test
     public void report() throws Exception {
-        RentCompany company = RentCompany.create(); // factory method를 사용해 생성
         company.addCar(new Sonata(150));
         company.addCar(new K5(260));
         company.addCar(new Sonata(120));
@@ -37,6 +41,7 @@ public class RentCompanyTest {
         company.addCar(new K5(390));
 
         String report = company.generateReport();
+
         assertThat(report).isEqualTo(
                 "Sonata : 15리터" + NEWLINE +
                         "K5 : 20리터" + NEWLINE +
