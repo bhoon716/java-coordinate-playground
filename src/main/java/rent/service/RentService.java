@@ -2,9 +2,11 @@ package rent.service;
 
 import rent.domain.Car;
 
+import java.util.List;
+
 public interface RentService {
 
-    Car[] mapStringToCar(String cars);
+    List<Car> mapStringToCar(String cars);
 
-    String generateReport(Car[] carArray);
+    String generateReport(List<Car> carArray);
 }

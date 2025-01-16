@@ -5,6 +5,8 @@ import rent.service.RentService;
 import rent.view.InputView;
 import rent.view.OutputView;
 
+import java.util.List;
+
 public class RentController {
 
     private final InputView inputView;
@@ -20,10 +22,8 @@ public class RentController {
     public void run(){
         outputView.printEnterRentCar();
         String cars = inputView.readRentCar();
-        Car[] array = rentService.mapStringToCar(cars);
+        List<Car> array = rentService.mapStringToCar(cars);
         String report = rentService.generateReport(array);
         outputView.printReport(report);
     }
-
-
 }
