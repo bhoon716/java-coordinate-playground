@@ -6,9 +6,19 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class RentServiceImpl implements RentService {
+public class RentCompany {
 
-    @Override
+//    private final List<Car> cars = new ArrayList<>();
+
+    public static RentCompany create() {
+        return new RentCompany();
+    }
+
+//    public boolean addCar(Car car) {
+//        cars.add(car);
+//        return true;
+//    }
+
     public List<Car> mapStringToCar(String cars) {
         String[] carNameAndDist = cars.split(",");
         return Arrays.stream(carNameAndDist).map(c -> {
@@ -20,8 +30,7 @@ public class RentServiceImpl implements RentService {
         }).collect(Collectors.toList());
     }
 
-    @Override
-    public String generateReport(List<Car> carArray) {
-        return "";
+    public String generateReport(List<Car> carList) {
+        return carList.stream().map(car -> car.getName() + " : " + (int)car.getChargeQuantity()+"리터\n").collect(Collectors.joining());
     }
 }
