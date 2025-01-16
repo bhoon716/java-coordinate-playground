@@ -21,7 +21,11 @@ public class RentApp {
         RentController rentController = new RentController(inputView, outputView, rentCompany);
 
         public void run(){
-            rentController.run();
+            try {
+                rentController.run();
+            } catch (IllegalArgumentException e){
+                System.out.println("Error: " + e);
+            }
         }
     }
 }
