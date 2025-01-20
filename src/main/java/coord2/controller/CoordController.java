@@ -1,6 +1,8 @@
 package coord2.controller;
 
+import coord2.domain.Grid;
 import coord2.domain.Point;
+import coord2.domain.Shape;
 import coord2.view.InputView;
 import coord2.view.OutputView;
 
@@ -16,6 +18,17 @@ public class CoordController {
     public CoordController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
+    }
+
+    public void run(){
+        outputView.printEnterPoints();
+        String input = inputView.readPoints();
+        Point[] points = mapStringToPoints(input);
+        Shape shape = ShapeFactory.create(points);
+        Grid grid = new Grid();
+        grid.mark(points);
+        outputView.printGrid(grid.toString());
+        outputView.printSize(shape.toString());
     }
 
     public Point[] mapStringToPoints(String str) {

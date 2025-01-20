@@ -1,6 +1,7 @@
 package coord2.controller;
 
 import coord2.domain.Point;
+import coord2.view.InputView;
 import coord2.view.InputViewImpl;
 import coord2.view.OutputViewImpl;
 import org.junit.jupiter.api.Test;
@@ -20,5 +21,20 @@ class CoordControllerTest {
 
         assertThat(result.length).isEqualTo(4);
         assertThat(result).isEqualTo(expected);
+    }
+
+    @Test
+    void runTest(){
+        coordController = new CoordController(new MockInputView(), new OutputViewImpl());
+
+        coordController.run();
+    }
+
+    class MockInputView implements InputView {
+
+        @Override
+        public String readPoints() {
+            return "(10,10)-(22,10)-(22,18)-(10,18)";
+        }
     }
 }
