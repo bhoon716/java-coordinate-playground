@@ -6,7 +6,6 @@ import coord2.view.OutputViewImpl;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class CoordControllerTest {
 
@@ -20,7 +19,6 @@ class CoordControllerTest {
         Point[] result = coordController.mapStringToPoints(input);
 
         assertThat(result.length).isEqualTo(4);
-//        assertThat(result).is
+        assertThat(result).isEqualTo(expected);
     }
-
 }
