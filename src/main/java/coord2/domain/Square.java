@@ -25,4 +25,9 @@ public class Square implements Shape {
     public double size() {
         return (points[0].calcDistance(points[1]) * (points[0].calcDistance(points[2])));
     }
+
+    @Override
+    public String toString(){
+        return "사각형 넓이는 " + size();
+    }
 }

@@ -21,4 +21,9 @@ public class Line implements Shape {
     public double size() {
         return points[0].calcDistance(points[1]);
     }
+
+    @Override
+    public String toString(){
+        return "두 점 사이의 거리 " + size();
+    }
 }
