@@ -23,6 +23,6 @@ public class Square implements Shape {
 
     @Override
     public double size() {
-        return 0;
+        return (points[0].calcDistance(points[1]) * (points[0].calcDistance(points[2])));
     }
 }
