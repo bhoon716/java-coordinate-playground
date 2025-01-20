@@ -3,7 +3,6 @@ package coord2.domain;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class GridTest {
 
@@ -24,6 +23,6 @@ class GridTest {
 
         grid.mark(points);
 
-        System.out.println(grid.draw());
+        System.out.println(grid);
     }
 }

@@ -30,7 +30,7 @@ public class Grid {
         return sb.toString();
     }
 
-    public String draw() {
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         for (int i = MAX; i > 0; i -= 2) {
             sb.append(String.format("%3d", i)).append(V_LINE).append(row(i)).append(NEW_LINE);
