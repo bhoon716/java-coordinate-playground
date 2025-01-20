@@ -4,6 +4,7 @@ import coord2.domain.Point;
 import coord2.view.InputView;
 import coord2.view.InputViewImpl;
 import coord2.view.OutputViewImpl;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -24,17 +25,34 @@ class CoordControllerTest {
     }
 
     @Test
+    @DisplayName("사각형")
     void runTest(){
-        coordController = new CoordController(new MockInputView(), new OutputViewImpl());
+        coordController = new CoordController(new MockSquareInputView(), new OutputViewImpl());
 
         coordController.run();
     }
 
-    class MockInputView implements InputView {
+    @Test
+    @DisplayName("직선")
+    void runTest2(){
+        coordController = new CoordController(new MockLineInputView(), new OutputViewImpl());
+
+        coordController.run();
+    }
+
+    class MockSquareInputView implements InputView {
 
         @Override
         public String readPoints() {
             return "(10,10)-(22,10)-(22,18)-(10,18)";
+        }
+    }
+
+    class MockLineInputView implements InputView {
+
+        @Override
+        public String readPoints() {
+            return "(10,10)-(22,10)";
         }
     }
 }

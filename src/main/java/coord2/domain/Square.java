@@ -2,6 +2,8 @@ package coord2.domain;
 
 import coord2.exception.IllegalSquareException;
 
+import static coord2.constant.CoordConstant.MAX;
+
 public class Square implements Shape {
 
     private final Point[] points;
@@ -23,7 +25,19 @@ public class Square implements Shape {
 
     @Override
     public double size() {
-        return (points[0].calcDistance(points[1]) * (points[0].calcDistance(points[2])));
+        int maxX = 0, maxY = 0;
+        int minX = MAX, minY = MAX;
+        for (Point point : points) {
+            maxX = Math.max(maxX, point.getX());
+            maxY = Math.max(maxY, point.getY());
+            minX = Math.min(minX, point.getX());
+            minY = Math.min(minY, point.getY());
+        }
+
+        int width = minX - maxX;
+        int height = maxY - minY;
+
+        return width * height;
     }
 
     @Override
