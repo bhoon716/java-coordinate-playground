@@ -22,7 +22,7 @@ public class Grid {
         StringBuilder sb = new StringBuilder();
         for (int i = 1; i <= MAX; i++) {
             if (grid[r][i] == null) {
-                sb.append(EMPTY);
+                sb.append(BLANK);
                 continue;
             }
             sb.append(MARK_SIGN);
@@ -35,15 +35,15 @@ public class Grid {
         for (int i = MAX; i > 0; i -= 2) {
             sb.append(String.format("%3d", i)).append(V_LINE).append(row(i)).append(NEW_LINE);
 
-            sb.append(EMPTY).append(V_LINE).append(row(i - 1)).append(NEW_LINE);
+            sb.append(BLANK).append(V_LINE).append(row(i - 1)).append(NEW_LINE);
         }
 
-        sb.append(EMPTY).append(ORIGIN);
+        sb.append(BLANK).append(ORIGIN);
         for (int i = 0; i <= MAX + 1; i++) {
             sb.append(H_LINE);
         }
 
-        sb.append(NEW_LINE).append(ZERO).append(EMPTY);
+        sb.append(NEW_LINE).append(ZERO).append(BLANK);
         for (int i = 2; i <= MAX; i+=2) {
             sb.append(String.format("%6d", i));
         }
