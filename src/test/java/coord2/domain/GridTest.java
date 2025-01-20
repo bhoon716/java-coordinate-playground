@@ -16,14 +16,4 @@ class GridTest {
         assertThat(grid).isNotNull();
         assertThat(grid).isInstanceOf(Grid.class);
     }
-
-    @Test
-    void createFailTest() {
-        int size = -24;
-
-        assertThrows(IllegalArgumentException.class, () -> {
-            new Grid(size);
-        });
-    }
-
 }

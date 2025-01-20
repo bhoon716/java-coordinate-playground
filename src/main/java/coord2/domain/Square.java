@@ -11,7 +11,7 @@ public class Square implements Shape {
         this.points = points;
     }
 
-    private static void validate(Point[] points) {
+    private void validate(Point[] points) {
         if (points.length != 4) {
             throw new IllegalSquareException();
         }

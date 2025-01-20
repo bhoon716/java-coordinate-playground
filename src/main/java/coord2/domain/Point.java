@@ -21,7 +21,7 @@ public class Point {
         this.y = y;
     }
 
-    private static void validate(int x, int y) {
+    private void validate(int x, int y) {
         if (x < MIN || x > MAX || y < MIN || y > MAX) {
             throw new IllegalPointException();
         }
