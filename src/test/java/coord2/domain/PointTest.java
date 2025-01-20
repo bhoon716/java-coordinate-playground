@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.offset;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PointTest {
@@ -14,7 +15,7 @@ class PointTest {
     void createPoint() {
         int x = 10, y = 20;
 
-        Point point = Point.at(x, y);
+        Point point = new Point(x, y);
 
         assertThat(point).isNotNull();
         assertThat(point).isInstanceOf(Point.class);
@@ -26,7 +27,17 @@ class PointTest {
         int x = 10, y = 40;
 
         assertThrows(IllegalArgumentException.class, () -> {
-            Point.at(x, y);
+            new Point(x, y);
         });
+    }
+
+    @Test
+    void calcDistance(){
+        Point p1 = new Point(10, 10);
+        Point p2 = new Point(14, 15);
+
+        double distance = p1.calcDistance(p2);
+
+        assertThat(distance).isEqualTo(6.403124, offset(0.00099));
     }
 }

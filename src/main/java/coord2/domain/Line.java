@@ -6,18 +6,14 @@ public class Line implements Shape {
 
     private final Point[] points;
 
-    private Line(Point[] points) {
+    public Line(Point[] points) {
+        validate(points);
         this.points = points;
     }
 
-    public static Line create(Point[] points){
-        validate(points);
-        return new Line(points);
-    }
-
-    private static void validate(Point[] points) {
+    private void validate(Point[] points) {
         if(points.length != 2 || points[0].equals(points[1])){
-            throw new IllegalLineException(); 
+            throw new IllegalLineException();
         }
     }
 

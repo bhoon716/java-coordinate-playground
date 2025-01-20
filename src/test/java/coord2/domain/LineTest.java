@@ -10,11 +10,11 @@ class LineTest {
 
     @Test
     void createTest() {
-        Point p1 = Point.at(2, 10);
-        Point p2 = Point.at(4, 20);
+        Point p1 = new Point(2, 10);
+        Point p2 = new Point(4, 20);
         Point[] points = {p1, p2};
 
-        Line line = Line.create(points);
+        Line line = new Line(points);
 
         assertThat(line).isNotNull();
         assertThat(line).isInstanceOf(Line.class);
@@ -23,22 +23,22 @@ class LineTest {
     @Test
     @DisplayName("직성 생성 실패 테스트 - 같은 점")
     void createFailTest() {
-        Point p1 = Point.at(4, 10);
-        Point p2 = Point.at(4, 10);
+        Point p1 = new Point(4, 10);
+        Point p2 = new Point(4, 10);
         Point[] points = {p1, p2};
 
         assertThrows(IllegalArgumentException.class, () -> {
-            Line.create(points);
+            new Line(points);
         });
     }
 
     @Test
     void sizeTest(){
-        Point p1 = Point.at(2, 5);
-        Point p2 = Point.at(2, 10);
+        Point p1 = new Point(2, 10);
+        Point p2 = new Point(4, 20);
         Point[] points = {p1, p2};
 
-        Line line = Line.create(points);
+        Line line = new Line(points);
         double size = line.size();
 
         assertThat(size).isEqualTo(5);

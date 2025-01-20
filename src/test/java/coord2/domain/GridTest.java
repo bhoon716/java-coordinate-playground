@@ -11,7 +11,7 @@ class GridTest {
     void createTest() {
         int size = 24;
 
-        Grid grid = Grid.create(size);
+        Grid grid = new Grid(size);
 
         assertThat(grid).isNotNull();
         assertThat(grid).isInstanceOf(Grid.class);
@@ -22,7 +22,7 @@ class GridTest {
         int size = -24;
 
         assertThrows(IllegalArgumentException.class, () -> {
-            Grid.create(size);
+            new Grid(size);
         });
     }
 

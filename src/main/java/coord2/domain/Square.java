@@ -7,12 +7,8 @@ public class Square implements Shape {
     private final Point[] points;
 
     public Square(Point[] points) {
-        this.points = points;
-    }
-
-    public static Square create(Point[] points) {
         validate(points);
-        return new Square(points);
+        this.points = points;
     }
 
     private static void validate(Point[] points) {
