@@ -17,7 +17,7 @@ public class Line implements Shape {
 
     private static void validate(Point[] points) {
         if(points.length != 2 || points[0].equals(points[1])){
-            throw new IllegalLineException();
+            throw new IllegalLineException(); 
         }
     }
 
