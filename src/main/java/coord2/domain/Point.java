@@ -32,6 +32,14 @@ public class Point {
         return sqrt(pow((x - o.x), 2) + pow((y - o.y), 2));
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
     @Override
     public boolean equals(Object object) {
         if (object == null || getClass() != object.getClass()) return false;
