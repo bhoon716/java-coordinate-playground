@@ -19,6 +19,6 @@ public class Line implements Shape {
 
     @Override
     public double size() {
-        return 0;
+        return points[0].calcDistance(points[1]);
     }
 }

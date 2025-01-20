@@ -35,12 +35,12 @@ class LineTest {
     @Test
     void sizeTest(){
         Point p1 = new Point(2, 10);
-        Point p2 = new Point(4, 20);
+        Point p2 = new Point(2, 20);
         Point[] points = {p1, p2};
 
         Line line = new Line(points);
         double size = line.size();
 
-        assertThat(size).isEqualTo(5);
+        assertThat(size).isEqualTo(10);
     }
 }
