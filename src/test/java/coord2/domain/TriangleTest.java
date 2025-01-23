@@ -29,4 +29,19 @@ class TriangleTest {
         });
     }
 
+    @Test
+    void size() {
+//        (10,10)-(14,15)-(20,8)
+        Point[] points = new Point[]{
+                new Point(10, 10),
+                new Point(14, 15),
+                new Point(20, 8)
+        };
+        Triangle triangle = new Triangle(points);
+
+        double size = triangle.size();
+
+        assertThat(size).isEqualTo(29.0);
+    }
+
 }
