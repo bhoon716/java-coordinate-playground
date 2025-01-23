@@ -14,7 +14,7 @@ class CoordControllerTest {
     CoordController coordController = new CoordController(new InputViewImpl(), new OutputViewImpl());
 
     @Test
-    void mapStringToPoints(){
+    void mapStringToPoints() {
         String input = "(10,10)-(22,10)-(22,18)-(10,18)";
         Point[] expected = {new Point(10, 10), new Point(22, 10), new Point(22, 18), new Point(10, 18)};
 
@@ -26,7 +26,7 @@ class CoordControllerTest {
 
     @Test
     @DisplayName("사각형")
-    void runTest(){
+    void runTest() {
         coordController = new CoordController(new MockSquareInputView(), new OutputViewImpl());
 
         coordController.run();
@@ -34,13 +34,21 @@ class CoordControllerTest {
 
     @Test
     @DisplayName("직선")
-    void runTest2(){
+    void runTest2() {
         coordController = new CoordController(new MockLineInputView(), new OutputViewImpl());
 
         coordController.run();
     }
 
-    class MockSquareInputView implements InputView {
+    @Test
+    @DisplayName("삼각형")
+    void runTest3() {
+        coordController = new CoordController(new MockTriangleInputView(), new OutputViewImpl());
+
+        coordController.run();
+    }
+
+    static class MockSquareInputView implements InputView {
 
         @Override
         public String readPoints() {
@@ -48,11 +56,19 @@ class CoordControllerTest {
         }
     }
 
-    class MockLineInputView implements InputView {
+    static class MockLineInputView implements InputView {
 
         @Override
         public String readPoints() {
             return "(10,10)-(22,10)";
+        }
+    }
+
+    static class MockTriangleInputView implements InputView{
+
+        @Override
+        public String readPoints() {
+            return "(10,10)-(14,15)-(20,8)";
         }
     }
 }
