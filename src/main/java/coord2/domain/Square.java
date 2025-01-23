@@ -3,6 +3,7 @@ package coord2.domain;
 import coord2.exception.IllegalSquareException;
 
 import static coord2.constant.CoordConstant.MAX;
+import static java.lang.Math.abs;
 
 public class Square implements Shape {
 
@@ -37,7 +38,7 @@ public class Square implements Shape {
         int width = minX - maxX;
         int height = maxY - minY;
 
-        return width * height;
+        return abs(width * height);
     }
 
     @Override
